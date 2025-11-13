@@ -146,53 +146,8 @@
             </div>
         </div>
     </footer>
-    <script>
-console.log('🔧 Starting reviews debug...');
-
-// Check if review elements exist
-console.log('📝 Review container:', document.getElementById('reviews-container'));
-console.log('📝 Review form:', document.getElementById('review-form'));
-
-// Check current reviews in storage
-const currentReviews = localStorage.getItem('kortexa-reviews');
-console.log('💾 Current reviews in storage:', currentReviews);
-
-// Manually test saving a review
-function testReviewSave() {
-    console.log('🧪 Testing review save...');
-    
-    const testReview = {
-        name: "Test Customer",
-        business: "Test Business", 
-        text: "This is a test review from debug",
-        rating: 5,
-        date: new Date().toISOString()
-    };
-    
-    console.log('💾 Saving:', testReview);
-    localStorage.setItem('kortexa-reviews', JSON.stringify([testReview]));
-    
-    // Verify save
-    const saved = localStorage.getItem('kortexa-reviews');
-    console.log('✅ Saved data:', saved);
-    
-    // Try to display it
-    if (document.getElementById('reviews-container')) {
-        document.getElementById('reviews-container').innerHTML = `
-            <div class="card">
-                <h3>${testReview.business}</h3>
-                <div>${'★'.repeat(testReview.rating)}</div>
-                <p>"${testReview.text}"</p>
-                <strong>— ${testReview.name}</strong>
-            </div>
-        `;
-        console.log('🎨 Review displayed manually!');
-    }
-}
-
-// Run test after page loads
-setTimeout(testReviewSave, 1000);
-</script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
+
