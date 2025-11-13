@@ -146,8 +146,28 @@
             </div>
         </div>
     </footer>
-    <script src="assets/js/script.js"></script>
+    
 </body>
+    <script>
+console.log('🔍 DEBUG: Checking script.js loading...');
 
+// Check if our functions exist
+console.log('❓ loadReviews function exists:', typeof loadReviews);
+console.log('❓ deleteReview function exists:', typeof deleteReview);
+
+// Force reload reviews with new system
+if (typeof loadReviews === 'function') {
+    console.log('🔄 Manually calling loadReviews...');
+    loadReviews();
+} else {
+    console.log('❌ loadReviews not found! Script.js not loaded properly.');
+}
+
+// Check if admin elements would show
+const reviews = JSON.parse(localStorage.getItem('kortexa-reviews')) || [];
+console.log('📊 Current reviews count:', reviews.length);
+console.log('📋 Reviews data:', reviews);
+</script>
 </html>
+
 
